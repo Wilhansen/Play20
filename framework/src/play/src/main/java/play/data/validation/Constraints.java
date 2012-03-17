@@ -408,7 +408,7 @@ public class Constraints {
      * Constructs a 'pattern' validator.
      */
     public static Validator<String> pattern(String regex) {
-        return new PatternValidator();
+        return new PatternValidator(regex);
     }
 
      /**
