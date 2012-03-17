@@ -39,6 +39,8 @@ public class Constraints {
             return isValid(object);
         }
         
+        public abstract Tuple<String, Object[]> getErrorMessageKey();
+        
     }
     
     /**
@@ -102,6 +104,10 @@ public class Constraints {
             return true;
         }
         
+        public Tuple<String, Object[]> getErrorMessageKey() {
+            return Tuple(message, new Object[] {});
+        }
+        
     }
     
     /**
@@ -151,6 +157,10 @@ public class Constraints {
             }
             
             return object.longValue() >= min;
+        }
+        
+        public Tuple<String, Object[]> getErrorMessageKey() {
+            return Tuple(message, new Object[] { min });
         }
         
     }
@@ -204,6 +214,10 @@ public class Constraints {
             return object.longValue() <= max;
         }
         
+        public Tuple<String, Object[]> getErrorMessageKey() {
+            return Tuple(message, new Object[] { max });
+        }
+        
     }
     
     /**
@@ -253,6 +267,10 @@ public class Constraints {
             }
             
             return object.length() >= min;
+        }
+        
+        public Tuple<String, Object[]> getErrorMessageKey() {
+            return Tuple(message, new Object[] { min });
         }
         
     }
@@ -306,6 +324,10 @@ public class Constraints {
             return object.length() <= max;
         }
         
+        public Tuple<String, Object[]> getErrorMessageKey() {
+            return Tuple(message, new Object[] { max });
+        }
+        
     }
     
     /**
@@ -349,6 +371,10 @@ public class Constraints {
             }
             
             return regex.matcher(object).matches();
+        }
+        
+        public Tuple<String, Object[]> getErrorMessageKey() {
+            return Tuple(message, new Object[] {});
         }
         
     }
@@ -400,6 +426,10 @@ public class Constraints {
             }
             
             return regex.matcher(object).matches();
+        }
+        
+        public Tuple<String, Object[]> getErrorMessageKey() {
+            return Tuple(message, new Object[] { regex });
         }
         
     }
